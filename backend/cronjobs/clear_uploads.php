@@ -25,8 +25,8 @@ if (is_dir($dir)) {
         }
     }
 
-    echo "Bereinigung abgeschlossen.";
+    echo 'Bereinigung abgeschlossen.';
 } else {
-    echo "Das Verzeichnis $dir existiert nicht.";
+    echo 'Das Verzeichnis ' . $dir . ' existiert nicht.';
 }
 ?>

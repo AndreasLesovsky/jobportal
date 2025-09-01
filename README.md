@@ -67,8 +67,8 @@ jobportal/
 
 * Rollenbasiertes Dashboard (Admin, HR)
 * Job‑Management: Erstellen, Bearbeiten, Löschen, Active‑Toggle (0/1)
-* Bewerber‑Management:: Liste mit Detail‑Accordion, Favoriten‑Toggle (0/1)
-* Benutzer‑Management:: Erstellen, Bearbeiten, Löschen, Rollenmanagement
+* Bewerber‑Management: Liste mit Detail‑Accordion, Favoriten‑Toggle (0/1)
+* Benutzer‑Management: Erstellen, Bearbeiten, Löschen, Rollenmanagement
 * Sortierung (Datum, Titel, Ort, Gehalt, Email, Jobtitel, usw.) und clientseitige Pagination
 * CV‑Download direkt aus der Bewerberliste
 * Sidebar: Sortier‑ und Filtereinstellungen, Suchfeld, Buttons zum Jobs und Benutzer erstellen, Logout
