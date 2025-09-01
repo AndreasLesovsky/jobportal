@@ -1,0 +1,48 @@
+<section class="bg-body-tertiary py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-5">
+
+        <h2 class="mb-3">Login</h2>
+
+        <form (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-floating mb-3">
+            <input id="email" name="email" type="email" class="form-control" placeholder="name@example.com"
+              [(ngModel)]="formData.email" required />
+            <label for="email">{{ 'login.labels.email' | translate }}</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input id="password" name="password" type="password" class="form-control" placeholder="Passwort"
+              [(ngModel)]="formData.password" required />
+            <label for="password">{{ 'login.labels.password' | translate }}</label>
+          </div>
+
+          <button class="btn btn-lg btn-primary custom-primary-hover" type="submit" [disabled]="isLoading()">
+            <span class="d-inline-flex align-items-center">
+              @if (isLoading()) {
+              <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+              }
+              @if (!isLoading()) {
+              <i class="bi bi-box-arrow-in-right me-2"></i>
+              }
+              Login
+            </span>
+          </button>
+        </form>
+
+        @if (submitSuccess() === true) {
+        <div class="alert alert-success mt-3" role="alert">
+          {{ 'login.messages.success' | translate }}
+        </div>
+        }
+
+        @if (!submitSuccess() && error()) {
+        <div class="alert alert-danger mt-3" role="alert">
+          {{ 'login.messages.error' | translate }}
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

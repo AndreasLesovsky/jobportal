@@ -1,0 +1,71 @@
+/* work-sans-200 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 200;
+  src: url('work-sans-v23-latin-200.woff2') format('woff2');
+}
+
+/* work-sans-200italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 200;
+  src: url('work-sans-v23-latin-200italic.woff2') format('woff2');
+}
+
+/* work-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('work-sans-v23-latin-regular.woff2') format('woff2');
+}
+
+/* work-sans-italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('work-sans-v23-latin-italic.woff2') format('woff2');
+}
+
+/* work-sans-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('work-sans-v23-latin-600.woff2') format('woff2');
+}
+
+/* work-sans-600italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url('work-sans-v23-latin-600italic.woff2') format('woff2');
+}
+
+/* work-sans-800 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('work-sans-v23-latin-800.woff2') format('woff2');
+}
+
+/* work-sans-800italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 800;
+  src: url('work-sans-v23-latin-800italic.woff2') format('woff2');
+}

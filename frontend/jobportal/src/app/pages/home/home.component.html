@@ -1,0 +1,138 @@
+<div id="home">
+  <!-- Hero -->
+  <section>
+    <div class="container">
+      <div class="row pt-5">
+        <div class="col-lg-8 col-xl-7 p-3 pb-0">
+          <h1 class="mb-3" [innerHTML]="'home.hero.title' | translate"></h1>
+          <p class="mb-4">{{ 'home.hero.description' | translate }}</p>
+          <div class="d-flex flex-wrap gap-3">
+            <button routerLink="/jobs" class="btn btn-lg btn-primary custom-primary-hover">
+              <span>
+                <i class="bi bi-card-list me-2"></i>
+                {{ 'common.button.jobs' | translate }}
+              </span>
+            </button>
+            <button class="btn btn-lg btn-outline-secondary custom-secondary-hover" routerLink="/contact">
+              <span class="d-inline-flex align-items-center">
+                <i class="bi bi-eye me-2"></i>
+                {{ 'home.dashboard.cta.requestDemo' | translate }}
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xl-5">
+          @if (darkModeService.darkMode() === 'dark') {
+          <img [ngSrc]="'/images/hero-mockup-dark.png'" width="800" height="800" alt="Hero Section Screenshot Mockup"
+            priority decoding="async" class="img-fluid" />
+          } @else {
+          <img [ngSrc]="'/images/hero-mockup-light.png'" width="800" height="800" alt="Hero Section Screenshot Mockup"
+            priority decoding="async" class="img-fluid" />
+          }
+        </div>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+      <path fill="var(--bs-body-bg)" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z">
+      </path>
+    </svg>
+  </section>
+
+  <!-- Dashboard -->
+  <section class="bg-body">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-6 order-lg-last mb-4">
+          <h2 class="mb-3">{{ 'home.dashboard.title' | translate }}</h2>
+          <p class="card-text mb-3">{{ 'home.dashboard.description' | translate }}</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-secondary text-light rounded-pill p-2">{{ 'home.dashboard.badge1' | translate
+              }}</span>
+            <span class="badge bg-secondary text-light rounded-pill p-2">{{ 'home.dashboard.badge6' | translate
+              }}</span>
+            <span class="badge bg-secondary text-light rounded-pill p-2">{{ 'home.dashboard.badge7' | translate
+              }}</span>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          @if (darkModeService.darkMode() === 'dark') {
+          <img [ngSrc]="'/images/dashboard-screenshot1-dark.webp'" width="800" height="450"
+            alt="Dashboard Screenshot Bewerber" decoding="async" class="img-fluid border shadow rounded-3" />
+          } @else {
+            <img [ngSrc]="'/images/dashboard-screenshot1-light.webp'" width="800" height="450"
+              alt="Dashboard Screenshot Bewerber" decoding="async" class="img-fluid border shadow rounded-3" />
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="my-0" />
+
+  <!-- Dashboard 2 -->
+  <section class="bg-body-tertiary">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <h2 class="card-title mb-3">{{ 'home.dashboard.subtitle' | translate }}</h2>
+          <p class="card-text mb-3">{{ 'home.dashboard.subdescription' | translate }}</p>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="badge bg-secondary text-light rounded-pill p-2">{{ 'home.dashboard.badge2' | translate
+              }}</span>
+            <span class="badge bg-secondary text-light rounded-pill p-2">{{ 'home.dashboard.badge3' | translate
+              }}</span>
+            <span class="badge bg-secondary text-light rounded-pill p-2">{{ 'home.dashboard.badge4' | translate
+              }}</span>
+            <span class="badge bg-secondary text-light rounded-pill p-2">{{ 'home.dashboard.badge5' | translate
+              }}</span>
+          </div>
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-lg btn-primary custom-primary-hover" routerLink="/login">
+              <span class="d-inline-flex align-items-center">
+                <i class="bi bi-box-arrow-in-right me-2"></i>
+                {{ 'home.dashboard.cta.login' | translate }}
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          @if (darkModeService.darkMode() === 'dark') {
+          <img [ngSrc]="'/images/dashboard-screenshot2-dark.webp'" width="800" height="450"
+            alt="Dashboard Screenshot Jobs" decoding="async" class="img-fluid border shadow rounded-3" />
+          } @else {
+            <img [ngSrc]="'/images/dashboard-screenshot2-light.webp'" width="800" height="450"
+              alt="Dashboard Screenshot Jobs" decoding="async" class="img-fluid border shadow rounded-3" />
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="my-0" />
+
+  <!-- Meeting -->
+  <section>
+    <div class="container py-5">
+      <div class="col-lg-9">
+        <h2 class="h1 text-light mb-3">{{ 'home.meeting.title' | translate }}</h2>
+        <p class="text-light mb-3">{{ 'home.meeting.description' | translate }}</p>
+        <div class="d-flex flex-wrap gap-3">
+          <button class="btn btn-lg btn-primary custom-primary-hover" routerLink="/home-three">
+            <span class="d-inline-flex align-items-center">
+              <i class="bi bi-badge-3d me-2"></i>
+              {{ 'home.meeting.cta' | translate }}
+            </span>
+          </button>
+          <button class="btn btn-lg btn-outline-secondary custom-secondary-hover" routerLink="/contact">
+            <span class="d-inline-flex align-items-center text-white">
+              <i class="bi bi-eye me-2"></i>
+              {{ 'home.dashboard.cta.requestDemo' | translate }}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

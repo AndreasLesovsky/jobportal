@@ -1,0 +1,91 @@
+<section class="bg-body-tertiary">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-lg-5 px-0">
+        @if (isEditMode()) {
+        <h3 class="mb-3">{{ 'userManagement.form.titles.edit' | translate }}</h3>
+        } @else {
+        <h3 class="mb-3">{{ 'userManagement.form.titles.create' | translate }}</h3>
+        }
+        <form (ngSubmit)="onSubmit()" id="create-user-form" class="create-user-form">
+          <div class="form-floating mb-3">
+            <input type="text" id="username" name="username" class="form-control" placeholder="Benutzername"
+              [(ngModel)]="formData.username" required />
+            <label for="username">{{ 'userManagement.form.labels.username' | translate }}</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="email" id="email" name="email" class="form-control" placeholder="E-Mail"
+              [(ngModel)]="formData.email" required />
+            <label for="email">{{ 'userManagement.form.labels.email' | translate }}</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Passwort"
+              [(ngModel)]="formData.password" required />
+            <label for="password">{{ 'userManagement.form.labels.password' | translate }}</label>
+          </div>
+
+          <div class="form-label mb-4">
+            <label for="role_id">{{ 'userManagement.form.labels.role' | translate }}</label>
+            <select id="role_id" name="role_id" class="form-select" [(ngModel)]="formData.role_id" required>
+              <option [ngValue]="1">Admin</option>
+              <option [ngValue]="2">HR</option>
+            </select>
+          </div>
+
+          <!-- Buttons -->
+          @if (isEditMode()) {
+          <button type="submit" class="btn btn-primary btn-lg custom-primary-hover" [disabled]="isLoading()">
+            <span class="d-inline-flex align-items-center">
+              {{ 'userManagement.form.buttons.save' | translate }}
+              @if (isLoading()) {
+              <span class="spinner-border spinner-border-sm ms-2" aria-hidden="true"></span>
+              } @else {
+              <i class="bi bi-pencil-square ms-2"></i>
+              }
+            </span>
+          </button>
+          } @else {
+          <button type="submit" class="btn btn-primary btn-lg custom-primary-hover" [disabled]="isLoading()">
+            <span class="d-inline-flex align-items-center">
+              {{ 'userManagement.form.buttons.create' | translate }}
+              @if (isLoading()) {
+              <span class="spinner-border spinner-border-sm ms-2" aria-hidden="true"></span>
+              } @else {
+              <i class="bi bi-person-add ms-2"></i>
+              }
+            </span>
+          </button>
+          }
+        </form>
+
+        <!-- Fehler & Erfolgsmeldungen -->
+        @if (errorType() === 'empty') {
+          <div class="alert alert-danger mt-3">
+            {{ 'userManagement.form.messages.error.empty' | translate }}
+          </div>
+        } @else if (errorType() === 'invalidEmail') {
+          <div class="alert alert-danger mt-3">
+            {{ 'userManagement.form.messages.error.invalidEmail' | translate }}
+          </div>
+        } @else if (errorType() === 'unchanged') {
+          <div class="alert alert-warning mt-3">
+            {{ 'userManagement.form.messages.error.unchanged' | translate }}
+          </div>
+        } @else if (errorType() === 'serverError') {
+          <div class="alert alert-danger mt-3">
+            {{ 'userManagement.form.messages.error.serverError' | translate }}
+          </div>
+        } @else {
+          @if (submitSuccess()) {
+            <div class="alert alert-success mt-3">
+              {{ isEditMode() ? ('userManagement.form.messages.success.save' | translate) :
+              ('userManagement.form.messages.success.create' | translate) }}
+            </div>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</section>

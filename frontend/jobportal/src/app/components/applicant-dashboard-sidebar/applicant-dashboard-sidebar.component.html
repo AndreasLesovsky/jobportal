@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg d-lg-flex flex-lg-column align-items-stretch  pb-2 p-lg-0">
+  <div class="d-flex align-items-center gap-2">
+    <span class="badge bg-primary text-white fs-6 p-2">
+      {{ getApplicantsService.applicants().length }}
+    </span>
+    <label class="form-label mb-0">{{ "dashboard.sidebar.applicant.totalField" | translate }}</label>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sideBarMenuApplicants"
+    aria-controls="sideBarMenuApplicants" aria-expanded="false" aria-label="Toggle Sidebar Menu"
+    title="Toggle Sidebar Menu">
+    <i class="bi bi-three-dots-vertical"></i>
+  </button>
+
+  <div class="collapse navbar-collapse align-items-stretch p-0" id="sideBarMenuApplicants">
+    <div class="d-flex flex-column gap-3 w-100">
+      <div class="d-flex align-items-center gap-3 form-check ps-0 mt-3">
+        <input class="form-check-input m-0 p-0" type="checkbox" id="favoriteOnlyCheck" [checked]="favoriteOnly()"
+          (change)="onFavoriteFilterChange($event)" />
+        <label class="form-check-label" for="favoriteOnlyCheck">
+          {{ "dashboard.sidebar.applicant.favoritesFilter" | translate }}
+        </label>
+      </div>
+
+      <div>
+        <label for="sortField" class="form-label mb-0">{{ "dashboard.sidebar.common.sortField" | translate }}</label>
+        <div class="input-group">
+          <select id="sortField" class="form-select" [value]="sortField()" (change)="changeSortField($event)">
+            <option value="created_at">{{ "dashboard.sidebar.applicant.sortOptions.date" | translate }}</option>
+            <option value="first_name">{{ "dashboard.sidebar.applicant.sortOptions.firstName" | translate }}</option>
+            <option value="last_name">{{ "dashboard.sidebar.applicant.sortOptions.lastName" | translate }}</option>
+            <option value="email">{{ "dashboard.sidebar.applicant.sortOptions.email" | translate }}</option>
+          </select>
+
+          <button type="button" class="btn btn-outline-secondary" (click)="toggleSortOrder()"
+            [attr.aria-label]="'Sortierung ' + sortOrder()">
+            <i class="bi bi-arrow-down sort-icon" [class.asc]="sortOrder() === 'asc'"
+              [class.desc]="sortOrder() === 'desc'">
+            </i>
+          </button>
+        </div>
+      </div>
+
+      <app-pagination-select-field></app-pagination-select-field>
+
+      <div class="form-floating">
+        <input #searchInput type="search" class="form-control" id="search" placeholder="Vorname, Nachname oder E-Mail"
+          (input)="handleSearch($event)" />
+        <label for="search">
+          <i class="bi bi-search me-1"></i>
+          {{ "dashboard.sidebar.applicant.searchField" | translate }}
+        </label>
+      </div>
+
+      <app-logout-btn></app-logout-btn>
+    </div>
+  </div>
+</nav>

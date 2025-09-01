@@ -1,0 +1,22 @@
+.card i {
+  display: inline-block;
+  color: var(--bs-body-color);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover i {
+  color: var(--bs-primary);
+  transform: scale(1.15);
+}
+
+.card {
+  border: 1px solid var(--bs-border-color);
+}
+
+.card .bi-laptop {
+  transform: scale(1.15);
+}
+
+.card:hover .bi-laptop {
+  transform: scale(1.3);
+}

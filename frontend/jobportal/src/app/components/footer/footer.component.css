@@ -1,0 +1,76 @@
+footer.container-fluid {
+  background: var(--bs-body-bg);
+}
+
+footer h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; /* Kürzt den Text mit "..." ab, wenn er zu lang ist */
+}
+
+.social-links {
+  gap: 1rem;
+}
+
+.social-links .icon-link {
+  color: var(--bs-text);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links .icon-link:hover {
+  color: var(--bs-primary);
+  transform: scale(1.1);
+}
+
+.list-unstyled li {
+  margin-block: 0.35rem;
+}
+
+footer svg {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+footer ul li a {
+  transition: all 0.4s ease;
+}
+
+footer ul li a:hover {
+  text-decoration-color: var(--bs-primary-hover-bg) !important;
+  text-decoration-thickness: 1.5px;
+}
+
+P.fs-5.mb-0 {
+  font-family: "Quicksand", sans-serif;
+}
+
+P.fs-5.mb-0 span:last-of-type {
+  font-weight: 700;
+}
+
+.feather {
+  stroke-width: 1;
+}
+
+.lang-link {
+  color: var(--bs-body-color);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background: none;
+  transition: all 0.4s ease;
+}
+
+.lang-link:hover {
+  color: var(--bs-primary-hover-bg);
+  text-decoration-color: var(--bs-primary-hover-bg);
+}
+
+.active {
+  text-decoration-color: var(--bs-primary) !important;
+  text-decoration-thickness: 2px;
+}

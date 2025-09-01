@@ -1,0 +1,38 @@
+.icon-wrapper.flag-animate {
+  animation: pop-wiggle 0.4s ease-in-out;
+  display: inline-block;
+  will-change: transform;
+}
+
+@keyframes pop-wiggle {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.05) rotate(-7deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(7deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-4deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.is-active {
+  color: var(--bs-success-text-emphasis) !important;
+}
+
+.job-title {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 576px) {
+
+  .job-title {
+    font-size: 1rem;
+  }
+}

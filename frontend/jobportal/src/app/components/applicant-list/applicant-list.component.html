@@ -1,0 +1,119 @@
+<div class="accordion accordion-flush shadow" id="accordionApplicantsList">
+  @for (applicant of paginatedApplicants(); track applicant.id; let i = $index) {
+  <div class="accordion-item">
+    <div class="accordion-header d-flex align-items-center" id="heading{{ applicant.id }}">
+      <h3 class="mb-0 flex-grow-1 me-2">
+        <button class="accordion-button d-flex align-items-center gap-2" [class.collapsed]="i !== 0"
+          type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + applicant.id"
+          [attr.aria-expanded]="i === 0" [attr.aria-controls]="'collapse' + applicant.id">
+          <span class="fw-semibold d-flex align-items-center" [ngClass]="applicant.is_favorite ? 'is-favorite' : ''">
+            <span class="badge fw-bold me-2" [ngClass]="
+              applicant.is_favorite ? 'bg-warning text-dark' : 'bg-secondary'">
+              {{ (pagination.currentPage() - 1) * pagination.itemsPerPage() + i + 1 }}
+            </span>
+            <span class="applicant-name">
+              {{ applicant.first_name }} {{ applicant.last_name }}
+            </span>
+          </span>
+        </button>
+      </h3>
+
+      <!-- Buttons -->
+      <div class="d-flex align-items-center gap-2 me-2">
+        <button type="button" class="btn btn-sm" [class.btn-warning]="applicant.is_favorite"
+          [class.btn-outline-secondary]="!applicant.is_favorite" (click)="toggleFavorite(applicant, starIcon)"
+          [attr.aria-label]="applicant.is_favorite
+          ? 'Aus Favoriten entfernen'
+          : 'Zu Favoriten hinzufügen'" [title]="applicant.is_favorite
+          ? 'Aus Favoriten entfernen'
+          : 'Zu Favoriten hinzufügen'">
+          <span #starIcon class="icon-wrapper">
+            <i class="bi" [class.bi-star-fill]="applicant.is_favorite" [class.bi-star]="!applicant.is_favorite"></i>
+          </span>
+        </button>
+
+
+        <button class="btn btn-sm btn-outline-danger" (click)="
+            deleteService.openDeleteModal('tbl_applicants', applicant.id)
+          " aria-label="Bewerber löschen" title="Bewerber löschen">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Collapse Content -->
+    <div [id]="'collapse' + applicant.id" class="accordion-collapse collapse" [class.show]="i === 0"
+      [attr.aria-labelledby]="'heading' + applicant.id" data-bs-parent="#accordionApplicantsList">
+      <div class="accordion-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="fw-semibold">
+              {{ "lists.applicant.headings.jobTitle" | translate }}
+            </h6>
+            <p class="fs-6">
+              <i class="bi bi-briefcase me-1"></i>
+              {{ applicant.job_title }}
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h6 class="fw-semibold">
+              {{ "lists.applicant.headings.dateReceived" | translate }}
+            </h6>
+            <p class="fs-6">
+              <i class="bi bi-clock me-1"></i>
+              {{
+              applicant.created_at
+              | date : "short" : undefined : languageService.locale
+              }}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="fw-semibold">
+              {{ "lists.applicant.headings.contactInfo" | translate }}
+            </h6>
+            <ul class="list-unstyled">
+              <li class="fs-6">
+                <i class="bi bi-envelope me-2 text-muted"></i>
+                <a href="mailto:{{ applicant.email }}"
+                  class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">
+                  {{ applicant.email }}
+                </a>
+              </li>
+              <li class="fs-6">
+                <i class="bi bi-telephone me-2 text-muted"></i>
+                <a href="tel:{{ applicant.phone }}"
+                  class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">
+                  {{ applicant.phone }}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h6 class="fw-semibold">
+              {{ "lists.applicant.headings.message" | translate }}
+            </h6>
+            <p class="fs-6">
+              {{ applicant.message }}
+            </p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-sm btn-primary custom-primary-hover"
+            (click)="downloadService.downloadCv(applicant.id)">
+            <span>
+              <i class="bi bi-download ms-0 me-1"></i>
+              {{ "lists.applicant.buttons.downloadCv" | translate }}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  } @empty {
+<p class="text-muted m-2">{{ "lists.applicant.emptyMessage" | translate }}</p>
+}
+</div>
+<app-pagination></app-pagination> 

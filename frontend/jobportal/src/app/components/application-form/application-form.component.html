@@ -1,0 +1,103 @@
+<section class="bg-body-tertiary py-5 border-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="mb-4">
+          {{ 'application.title' | translate }}
+          {{ jobTitle() ?? '…' }}
+        </h2>
+        <p>
+          {{ 'application.subtitle' | translate }}
+        </p>
+
+        <form (ngSubmit)="onSubmit()" id="application-form">
+          <div class="form-floating mb-4">
+            <input type="text" class="form-control" id="first-name" placeholder="First Name"
+              [(ngModel)]="formData.first_name" name="first_name" required />
+            <label for="first-name">{{ 'application.form.fields.firstName' | translate }}</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input type="text" class="form-control" id="last-name" placeholder="Last Name"
+              [(ngModel)]="formData.last_name" name="last_name" required />
+            <label for="last-name">{{ 'application.form.fields.lastName' | translate }}</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="formData.email"
+              name="email" required />
+            <label for="email">{{ 'application.form.fields.email' | translate }}</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input type="tel" class="form-control" id="phone" placeholder="Phone Number" [(ngModel)]="formData.phone"
+              name="phone" required />
+            <label for="phone">{{ 'application.form.fields.phone' | translate }}</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <textarea class="form-control" id="message" style="height: 200px" placeholder="Message"
+              [(ngModel)]="formData.message" name="message" required></textarea>
+            <label for="message">{{ 'application.form.fields.message' | translate }}</label>
+          </div>
+
+          <div class="mb-4">
+            <label for="cv" class="form-label">{{ 'application.form.fields.cv' | translate }}</label>
+            <div class="input-group">
+              <input type="file" class="form-control" id="cv" accept=".pdf" (change)="handleFile($event)" required />
+              <button type="button" class="btn btn-danger clear-button" (click)="clearFile()"
+                [disabled]="!formData.cv"><i class="bi bi-trash3"></i></button>
+            </div>
+          </div>
+
+          <app-recaptcha></app-recaptcha>
+
+          <button type="submit" class="btn btn-primary btn-lg custom-primary-hover" [disabled]="isLoading()">
+            <span class="d-inline-flex align-items-center">
+              {{ 'application.form.submit' | translate }}
+              @if (isLoading()) {
+              <span class="spinner-border spinner-border-sm ms-2" aria-hidden="true"></span>
+              } @else {
+              <i class="bi bi-send ms-2"></i>
+              }
+            </span>
+          </button>
+
+          <div class="d-none">
+            <input type="number" [value]="jobId()" name="job_id" hidden readonly />
+            <label for="jobId">Job ID</label>
+          </div>
+
+          <!-- Fehler & Erfolgsmeldungen -->
+          @if (errorType() || serverErrorType()) {
+            <div class="alert alert-danger mt-4" role="alert">
+              @if (errorType() === 'empty') {
+                {{ 'application.form.errors.emptyFields' | translate }}
+              } @else if (errorType() === 'cvEmpty') {
+                {{ 'application.form.errors.cvEmpty' | translate }}
+              } @else if (errorType() === 'invalidJobId') {
+                {{ 'application.form.errors.invalidJobId' | translate }}
+              } @else if (errorType() === 'invalidEmail') {
+                {{ 'application.form.errors.invalidEmail' | translate }}
+              } @else if (errorType() === 'recaptchaMissing') {
+                {{ 'application.form.errors.recaptchaMissing' | translate }}
+              } @else if (errorType() === 'serverError') {
+                {{ 'application.form.errors.serverError' | translate }}
+              } @else if (serverErrorType() === 'recaptchaFailed') {
+                {{ 'serverErrors.recaptchaFailed' | translate }}
+              } @else if (serverErrorType() === 'emptyFields') {
+                {{ 'serverErrors.emptyFields' | translate }}
+              } @else if (serverErrorType() === 'failedUpload') {
+                {{ 'serverErrors.failedUpload' | translate }}
+              }
+            </div>
+          } @else if (submitSuccess()) {
+            <div class="alert alert-success mt-4" role="alert">
+              {{ 'application.form.successMessage' | translate }}
+            </div>
+          }
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

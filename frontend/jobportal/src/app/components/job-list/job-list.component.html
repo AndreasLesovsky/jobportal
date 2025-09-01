@@ -1,0 +1,106 @@
+<p class="fs-5">
+  {{ "jobsPage.subtitle" | translate }}
+  <span class="text-nowrap">
+    <a href="mailto:job@jobportal.com"
+      class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">job&#64;jobportal.com</a>.
+  </span>
+</p>
+
+<div class="row mb-2">
+  <div class="col-md-4 col-xl-3">
+    <label for="sortField" class="form-label mb-0">{{ "dashboard.sidebar.common.sortField" | translate }}</label>
+    <div class="input-group">
+      <select id="sortField" class="form-select" [value]="sortField()" (change)="changeSortField($event)">
+        <option value="created_at">{{ "dashboard.sidebar.job.sortOptions.createdAt" | translate }}</option>
+        <option value="title">{{ "dashboard.sidebar.job.sortOptions.title" | translate }}</option>
+        <option value="location">{{ "dashboard.sidebar.job.sortOptions.location" | translate }}</option>
+        <option value="salary">{{ "dashboard.sidebar.job.sortOptions.salary" | translate }}</option>
+      </select>
+
+      <button type="button" class="btn btn-outline-secondary" (click)="toggleSortOrder()"
+        [attr.aria-label]="'Sortierung ' + sortOrder()">
+        <i class="bi bi-arrow-down sort-icon" [class.asc]="sortOrder() === 'asc'"
+          [class.desc]="sortOrder() === 'desc'"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-md-4 col-xl-3">
+    <div class="form-floating mb-0">
+      <input #searchInput type="search" class="form-control" id="search" placeholder="Vorname, Nachname oder E-Mail"
+        (input)="handleSearch($event)" />
+      <label for="search">
+        <i class="bi bi-search me-1"></i>
+        {{ "jobsPage.searchField" | translate }}
+      </label>
+    </div>
+  </div>
+</div>
+
+<p class="text-lead mb-2">
+  {{ 'jobsPage.count' | translate:{ count: jobs().length } }}
+</p>
+
+<div class="accordion accordion-flush shadow" id="accordionJobList">
+  @for (job of paginatedJobs(); track job.id; let i = $index) {
+  <div class="accordion-item">
+    <div class="accordion-header d-flex align-items-center" id="heading{{ job.id }}">
+      <h3 class="mb-0 flex-grow-1">
+        <button class="accordion-button" [class.collapsed]="i !== 0" type="button" data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#collapse' + job.id" [attr.aria-expanded]="i === 0"
+          [attr.aria-controls]="'collapse' + job.id">
+          <span class="job-title fw-semibold">{{ job.title }}</span>
+          <span class="job-title fs-5 text-muted ms-1 d-none d-md-block">{{ job.location | translate }}</span>
+        </button>
+      </h3>
+    </div>
+
+    <div [id]="'collapse' + job.id" class="accordion-collapse collapse" [class.show]="i === 0"
+      [attr.aria-labelledby]="'heading' + job.id" data-bs-parent="#accordionJobList">
+      <div class="accordion-body">
+        <div class="row g-3">
+          <div class="col-lg-4">
+            <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+              <h6 class="fw-semibold mb-0">{{ "lists.job.headings.createdAt" | translate }}</h6>
+              <span class="text-muted">{{ job.created_at | date:'short':undefined:languageService.locale }}</span>
+            </div>
+          </div>
+
+          <div class="col-12 d-md-none">
+            <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+              <h6 class="fw-semibold mb-0">{{ "lists.job.headings.location" | translate }}</h6>
+              <span class="badge bg-secondary">{{ job.location }}</span>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-xl-4">
+            <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+              <h6 class="fw-semibold mb-0">{{ "lists.job.headings.salary" | translate }}</h6>
+              <span>{{ job.salary }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="h4 mb-2">{{ job.description | translate }}</h4>
+          <p class="mb-0">{{ job.details }}</p>
+        </div>
+
+        <div class="d-flex justify-content-md-end mt-3">
+          <button class="btn btn-primary custom-primary-hover btn-lg" [routerLink]="['/apply', job.id]">
+            <span>
+              <i class="bi bi-rocket-takeoff me-2"></i>
+              {{ "jobsPage.applyButton" | translate }}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  } @empty {
+<p class="text-muted m-2">{{ "jobsPage.emptyMessage" | translate }}</p>
+}
+</div>
+<app-pagination></app-pagination>

@@ -1,0 +1,23 @@
+@if (totalPages() > 1) {
+<nav class="d-flex justify-content-center mt-4">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage() === 1" (click)="previous()">
+      <a class="page-link">
+        <i class="bi bi-chevron-compact-left"></i>
+      </a>
+    </li>
+
+    @for (page of pagesList(); track page) {
+    <li class="page-item" [class.active]="page === currentPage()" (click)="changePage(page)">
+      <a class="page-link">{{ page }}</a>
+    </li>
+    }
+
+    <li class="page-item" [class.disabled]="currentPage() === totalPages()" (click)="next()">
+      <a class="page-link">
+        <i class="bi bi-chevron-compact-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+}

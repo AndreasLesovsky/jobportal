@@ -1,0 +1,94 @@
+<div class="accordion accordion-flush shadow" id="accordionJobsList">
+  @for (job of paginatedJobs(); track job.id; let i = $index) {
+  <div class="accordion-item">
+    <div class="accordion-header d-flex align-items-center" id="heading{{ job.id }}">
+      <h3 class="mb-0 flex-grow-1 me-2">
+        <button class="accordion-button d-flex align-items-center gap-2" [class.collapsed]="i !== 0"
+          type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + job.id"
+          [attr.aria-expanded]="i === 0" [attr.aria-controls]="'collapse' + job.id">
+
+          <span class="fw-semibold d-flex align-items-center" [ngClass]="job.is_active ? '' : 'text-muted'">
+            <span class="badge fw-bold me-2" [ngClass]="job.is_active ? 'bg-success' : 'bg-secondary'">
+              {{ (pagination.currentPage() - 1) * pagination.itemsPerPage() + i + 1 }}
+            </span>
+            <span class="job-title">
+              {{ job.title }}
+            </span>
+          </span>
+        </button>
+      </h3>
+
+      <!-- Buttons -->
+      <div class="d-flex align-items-center gap-2 me-2">
+        <button type="button" class="btn btn-sm" [class.btn-success]="job.is_active"
+          [class.btn-outline-secondary]="!job.is_active" (click)="toggleActive(job, flagIcon)"
+          [attr.aria-label]="job.is_active ? 'Job deaktivieren' : 'Job aktivieren'"
+          [title]="job.is_active ? 'Job deaktivieren' : 'Job aktivieren'">
+          <span #flagIcon class="icon-wrapper">
+            <i class="bi" [class.bi-flag-fill]="job.is_active" [class.bi-flag]="!job.is_active"></i>
+          </span>
+        </button>
+
+
+        <button class="btn btn-sm btn-outline-secondary text-nowrap" [routerLink]="['/dashboard/create-job', job.id]"
+          aria-label="Job bearbeiten" title="Job bearbeiten">
+          <i class="bi bi-pencil"></i>
+        </button>
+
+        <button class="btn btn-sm btn-outline-danger" (click)="deleteService.openDeleteModal('tbl_jobs', job.id)"
+          aria-label="Job löschen" title="Job löschen">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Collapse Content -->
+    <div [id]="'collapse' + job.id" class="accordion-collapse collapse" [class.show]="i === 0"
+      [attr.aria-labelledby]="'heading' + job.id" data-bs-parent="#accordionJobsList">
+      <div class="accordion-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="fw-semibold">{{ 'lists.job.headings.location' | translate }}</h6>
+            <p class="fs-6">
+              <i class="bi bi-globe-europe-africa me-1"></i>
+              {{ job.location }}
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h6 class="fw-semibold">{{ 'lists.job.headings.createdAt' | translate }}</h6>
+            <p class="fs-6">
+              <i class="bi bi-clock me-1"></i>
+              {{ job.created_at | date:'short':undefined:languageService.locale }}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="fw-semibold">{{ 'lists.job.headings.description' | translate }}</h6>
+            <p class="fs-6">
+              {{ job.description }}
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h6 class="fw-semibold">{{ 'lists.job.headings.details' | translate }}</h6>
+            <p class="fs-6">
+              {{ job.details }}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="fw-semibold">{{ 'lists.job.headings.salary' | translate }}</h6>
+            <p class="fs-6">
+              {{ job.salary }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  } @empty {
+<p class="text-muted m-2">{{ 'lists.job.emptyMessage' | translate }}</p>
+}
+</div>
+<app-pagination></app-pagination>

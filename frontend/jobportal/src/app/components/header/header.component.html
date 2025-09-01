@@ -1,0 +1,92 @@
+<header>
+  <nav
+    class="navbar navbar-expand-lg border-bottom d-flex justify-content-between align-items-center fixed-top shadow-sm px-3">
+    <a class="navbar-brand" routerLink="/">
+      <i class="bi bi-people text-white" aria-hidden="true"></i>
+      <span class="ms-2">JobPortal</span>
+    </a>
+
+    <div class="order-lg-2 d-flex align-items-center gap-2 ms-2">
+      <!-- Language Switch -->
+      @if (languageService.currentLang() !== 'en') {
+      <button (click)="languageService.translateText('en')" class="btn btn-outline-secondary lang-switch"
+        aria-label="Sprache auf Englisch umstellen" title="Sprache auf Englisch umstellen">
+        DE
+      </button>
+      } @else if (languageService.currentLang() !== 'de') {
+      <button (click)="languageService.translateText('de')" class="btn btn-outline-secondary lang-switch"
+        aria-label="Sprache auf Deutsch umstellen" title="Sprache auf Deutsch umstellen">
+        EN
+      </button>
+      }
+
+      <!-- Dark Mode Toggle -->
+      <button id="theme-toggler" class="btn btn-outline-secondary" (click)="toggleTheme()"
+        aria-label="Design umschalten" title="Design umschalten">
+        <i class="bi bi-brightness-high theme-icon sun-icon"></i>
+        <i class="bi bi-moon theme-icon moon-icon visually-hidden"></i>
+      </button>
+
+      <!-- Login Button -->
+      <button class="btn btn-outline-secondary btn-login" routerLink="/login" (click)="hideCollapse()" aria-label="Login" title="Login">
+        <i class="bi bi-person" aria-hidden="true"></i>
+      </button>
+
+      <!-- Hamburger Menü -->
+      <button class="hamburger hamburger--elastic d-lg-none p-1 m-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#mainNavbarContent" aria-controls="mainNavbarContent" aria-expanded="false"
+        aria-label="Navigation" title="Navigation">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Navigationsinhalt -->
+    <div class="collapse navbar-collapse order-lg-1 d-lg-none" id="mainNavbarContent">
+      <ul class="navbar-nav ms-auto gap-2 mb-0">
+        <li class="nav-item fs-5">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            (click)="hideCollapse()">Home</a>
+        </li>
+
+        <li class="nav-item fs-5">
+          <a class="nav-link" routerLink="/jobs" routerLinkActive="active" (click)="hideCollapse()">
+            {{ 'header.navLinks.career' | translate }}
+          </a>
+        </li>
+
+        <li class="nav-item fs-5">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseCompany">
+            {{ 'header.navLinks.company' | translate }}
+          </a>
+          <ul class="collapse list-unstyled" id="collapseCompany">
+            <li>
+              <a class="nav-link" routerLink="/under-construction" (click)="hideCollapse()">
+                {{ 'header.navLinks.about' | translate }}
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" routerLink="/under-construction" (click)="hideCollapse()">
+                {{ 'header.navLinks.team' | translate }}
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" routerLink="/under-construction" (click)="hideCollapse()">
+                {{ 'header.navLinks.culture' | translate }}
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item fs-5">
+          <a class="nav-link btn btn-primary text-light" routerLink="/contact" routerLinkActive="active"
+            (click)="hideCollapse()">
+            {{ 'header.navLinks.contact' | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="placeholder"></div>
+</header>

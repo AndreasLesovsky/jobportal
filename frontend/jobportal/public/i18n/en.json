@@ -1,0 +1,335 @@
+{
+  "common": {
+    "button": {
+      "home": "Home",
+      "jobs": "Jobs"
+    },
+    "navigation": {
+      "next": "Next",
+      "prev": "Previous"
+    }
+  },
+  "underConstruction": {
+    "title": "This page is still under construction!",
+    "description": "Return to the homepage or browse job listings."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Return to the homepage or browse job listings."
+  },
+  "header": {
+    "navLinks": {
+      "career": "Careers",
+      "company": "Company",
+      "about": "About Us",
+      "team": "Our Team",
+      "culture": "Work Culture",
+      "contact": "Request Demo"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Digital <span class='text-primary'>application process</span> for <span class='text-primary'>companies</span> and <span class='text-primary'>applicants</span>",
+      "description": "This platform combines job postings, applications, and applicant management in a single application. From job listings to CV uploads to the admin dashboard."
+    },
+    "dashboard": {
+      "title": "Manage Applicants",
+      "subtitle": "Manage Jobs",
+      "description": "Admins and HR staff can view applications, mark applicants as favorites, or remove them - all clearly organized in a dashboard.",
+      "subdescription": "Additionally, jobs can be activated, created, and edited - multilingual support included.",
+      "badge1": "Applicant list",
+      "badge2": "Job list",
+      "badge3": "Create and edit jobs & users",
+      "badge4": "User list",
+      "badge5": "Filters & favorites",
+      "badge6": "CV download",
+      "badge7": "View form data",
+      "cta": {
+        "login": "Login",
+        "requestDemo": "Request demo login"
+      }
+    },
+    "meeting": {
+      "title": "From Application to Interview",
+      "description": "All application steps in one place - clear, digital, and ready for HR to move the process forward efficiently.",
+      "cta": "Start 3D Tour",
+      "cta-three": "Restart Tour"
+    }
+  },
+  "footer": {
+    "slogan": {
+      "title": "Career with Perspective.",
+      "subtitle": "Discover suitable job opportunities and apply within minutes."
+    },
+    "section1": {
+      "title": "Discover",
+      "items": {
+        "item1": "Job Listings",
+        "item2": "Career Tips",
+        "item3": "Company Profiles"
+      }
+    },
+    "section2": {
+      "title": "Information",
+      "items": {
+        "item1": "About Us",
+        "item2": "Contact",
+        "item3": "Privacy Policy"
+      }
+    }
+  },
+  "contact": {
+    "title": "Request Demo",
+    "subtitle": "Request your demo login via the form or contact me directly at",
+    "form": {
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message"
+      },
+      "submit": "Submit",
+      "messages": {
+        "success": "Message sent successfully. Thank you!",
+        "emptyFields": "Please fill in all fields.",
+        "invalidEmail": "Please enter a valid email address.",
+        "recaptcha": "Please complete the reCAPTCHA verification.",
+        "serverError": "Error sending the message. Please refresh the page or try again later."
+      }
+    }
+  },
+  "application": {
+    "title": "Apply as",
+    "subtitle": "Apply directly using the form below.",
+    "form": {
+      "fields": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email address",
+        "phone": "Phone number",
+        "cv": "Upload CV / Resume (PDF only)",
+        "message": "Message"
+      },
+      "submit": "Apply",
+      "successMessage": "Application has been successfully submitted. Thank you!",
+      "errors": {
+        "emptyFields": "Please fill in all fields.",
+        "cvEmpty": "Please upload your CV.",
+        "invalidEmail": "The email address is invalid.",
+        "recaptchaMissing": "Please confirm that you are not a robot.",
+        "serverError": "An error occurred on the server.",
+        "invalidJobId": "Invalid job position selected."
+      }
+    }
+  },
+  "login": {
+    "labels": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "messages": {
+      "success": "Login successful! You will be redirected...",
+      "error": "Login failed"
+    }
+  },
+  "logout": {
+    "labels": {
+      "logout": "Logout"
+    },
+    "errors": {
+      "failedApiCall": "Logout failed, please try again.",
+      "serverError": "An error occurred on the server."
+    }
+  },
+  "dashboard": {
+    "headings": {
+      "applicant": "Applicants List",
+      "user": "User List",
+      "job": "Job List"
+    },
+    "sidebar": {
+      "common": {
+        "sortField": "Sort by:",
+        "searchField": "Search",
+        "pagination": "Results per page:"
+      },
+      "applicant": {
+        "sortOptions": {
+          "date": "Received date",
+          "firstName": "First Name",
+          "lastName": "Last Name",
+          "email": "Email"
+        },
+        "searchField": "Search Applicants",
+        "totalField": "total Applicants",
+        "favoritesFilter": "Show Favorites only"
+      },
+      "user": {
+        "sortOptions": {
+          "createdAt": "Created At",
+          "username": "User Name",
+          "email": "Email",
+          "role": "Role"
+        },
+        "searchField": "Search Users",
+        "totalField": "total Users",
+        "roleFilter": "Filter Role:",
+        "allRoles": "All Roles",
+        "createButton": "Create User"
+      },
+      "job": {
+        "searchField": "Search Jobs",
+        "totalField": "total Jobs",
+        "activeFilter": "Show active jobs only",
+        "createButton": "Create Job",
+        "sortOptions": {
+          "createdAt": "Created At",
+          "title": "Job title",
+          "location": "Location",
+          "salary": "Salary"
+        }
+      }
+    }
+  },
+  "lists": {
+    "applicant": {
+      "buttons": {
+        "downloadCv": "Download CV"
+      },
+      "headings": {
+        "contactInfo": "Contact Information",
+        "message": "Message",
+        "dateReceived": "Received Date",
+        "jobTitle": "Job Title"
+      },
+      "emptyMessage": "No applicants available."
+    },
+    "user": {
+      "headings": {
+        "email": "Emailaddress",
+        "createdAt": "Created At"
+      },
+      "emptyMessage": "No users available."
+    },
+    "job": {
+      "headings": {
+        "location": "Location",
+        "createdAt": "Created At",
+        "description": "Description",
+        "details": "Details",
+        "salary": "Salary"
+      },
+      "emptyMessage": "No jobs available."
+    }
+  },
+  "userManagement": {
+    "form": {
+      "titles": {
+        "edit": "Edit User",
+        "create": "Create User"
+      },
+      "labels": {
+        "username": "Username",
+        "email": "Email Address",
+        "password": "Password",
+        "role": "Select Role"
+      },
+      "buttons": {
+        "create": "Create User",
+        "save": "Save"
+      },
+      "messages": {
+        "success": {
+          "create": "User created successfully!",
+          "save": "User updated successfully!"
+        },
+        "error": {
+          "empty": "Please fill out all fields.",
+          "invalidEmail": "Invalid email address.",
+          "serverError": "Error saving data. Please try again.",
+          "unchanged": "No changes made."
+        }
+      }
+    }
+  },
+  "jobManagement": {
+    "form": {
+      "titles": {
+        "edit": "Edit Job",
+        "create": "Create Job"
+      },
+      "languageHeadings": {
+        "german": "German (DE)",
+        "english": "English (EN)"
+      },
+      "labels": {
+        "title": "Job Title",
+        "location": "Location",
+        "description": "Description",
+        "details": "Details",
+        "salary": "Salary",
+        "active": "Status"
+      },
+      "statusOptions": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "buttons": {
+        "create": "Create Job",
+        "save": "Save Changes"
+      },
+      "messages": {
+        "success": {
+          "create": "Job created successfully!",
+          "save": "Job updated successfully!"
+        },
+        "warning": {
+          "checkTranslation": "Please review both translations and adjust if necessary."
+        },
+        "error": {
+          "empty": "Please fill in all fields.",
+          "serverError": "Error saving data. Please try again.",
+          "unchanged": "No changes were made."
+        }
+      }
+    }
+  },
+  "deleteModal": {
+    "title": "Confirm Deletion",
+    "body": "Do you really want to delete this entry?",
+    "buttons": {
+      "cancel": "Cancel",
+      "confirm": "Yes, delete"
+    },
+    "error": {
+      "existingApplicants": "This job cannot be deleted because there are still applicants assigned to it. You can set the job to 'inactive' if no more applications are desired.",
+      "deleteLoggedInUser": "You cannot delete your own user account."
+    }
+  },
+  "benefits": {
+    "title": "Your Benefits",
+    "cardTitle1": "Drinks & Coffee",
+    "cardTitle2": "Fresh Fruit",
+    "cardTitle3": "Modern Equipment",
+    "cardText1": "Cold drinks and fresh coffee are always available.",
+    "cardText2": "We provide a daily selection of fresh fruit.",
+    "cardText3": "A company laptop and smartphone are provided."
+  },
+  "serverErrors": {
+    "recaptchaFailed": "reCAPTCHA verification failed. Please try again.",
+    "emptyFields": "Please fill in all required fields.",
+    "failedUpload": "Failed to upload the CV. Please try again."
+  },
+  "jobsPage": {
+    "title": "Careers",
+    "subtitle": "Discover exciting job opportunities and start your career with us. Apply now via the button or by email at ",
+    "emptyMessage": "No jobs available.",
+    "searchField": "Search Jobs",
+    "details": {
+      "label": "Details:",
+      "salary": "Salary:",
+      "location": "Job location:"
+    },
+    "applyButton": "Apply",
+    "count": "Currently {{count}} positions are open"
+  }
+}

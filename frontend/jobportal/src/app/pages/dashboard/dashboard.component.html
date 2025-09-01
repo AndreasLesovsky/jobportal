@@ -1,0 +1,37 @@
+<div class="bg-body-tertiary border-bottom pb-5">
+  <section class="container">
+    <h2 class="display-4 py-4 fw-semibold">Dashboard</h2>
+
+    <!--
+      Bei Erweiterung um weitere Rollen empfiehlt sich die Nutzung eines @switch-Blocks
+      statt verschachtelter @if/@else, um die Übersichtlichkeit zu erhöhen.
+    -->
+
+    @if (loginService.role() === 'admin' || loginService.role() === 'superadmin') {
+    <nav class="dashboard-nav mb-3">
+      <a class="btn btn-primary" routerLink="/dashboard/users" routerLinkActive="active">
+        {{ 'dashboard.headings.user' | translate }}
+      </a>
+      <a class="btn btn-primary" routerLink="/dashboard/applicants" routerLinkActive="active">
+        {{ 'dashboard.headings.applicant' | translate }}
+      </a>
+      <a class="btn btn-primary" routerLink="/dashboard/jobs" routerLinkActive="active">
+        {{ 'dashboard.headings.job' | translate }}
+      </a>
+    </nav>
+    } @else {
+    <nav class="dashboard-nav mb-3">
+      <a class="btn btn-primary" routerLink="/dashboard/applicants" routerLinkActive="active">
+        {{ 'dashboard.headings.applicant' | translate }}
+      </a>
+      <a class="btn btn-primary" routerLink="/dashboard/jobs" routerLinkActive="active">
+        {{ 'dashboard.headings.job' | translate }}
+      </a>
+    </nav>
+    }
+  </section>
+
+  <section class="container">
+    <router-outlet></router-outlet>
+  </section>
+</div>

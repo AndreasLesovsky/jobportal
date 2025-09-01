@@ -1,0 +1,21 @@
+<section class="container py-5">
+  <h2 class="mb-4">{{ 'underConstruction.title' | translate }}</h2>
+  <p>{{ 'underConstruction.description' | translate }}</p>
+  <div class="d-flex flex-column flex-md-row gap-3 mb-5">
+    <button routerLink="/" class="btn btn-lg btn-outline-primary custom-outline-primary-hover">
+      <span>
+        <i class="bi bi-house me-2"></i>
+        {{ 'common.button.home' | translate }}
+      </span>
+    </button>
+    <button routerLink="/jobs" class="btn btn-lg btn-primary custom-primary-hover">
+      <span>
+        <i class="bi bi-card-list me-2"></i>
+        {{ 'common.button.jobs' | translate }}
+      </span>
+    </button>
+  </div>
+  <div class="col-12 col-lg-6">
+    <img src="/images/under-construction.webp" alt="under-construction" class="img-fluid" />
+  </div>
+</section>

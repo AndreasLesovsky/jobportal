@@ -1,0 +1,335 @@
+{
+  "common": {
+    "button": {
+      "home": "Startseite",
+      "jobs": "Stellenanzeigen"
+    },
+    "navigation": {
+      "next": "Weiter",
+      "prev": "Zurück"
+    }
+  },
+  "underConstruction": {
+    "title": "Diese Seite befindet sich noch im Aufbau!",
+    "description": "Hier gelangen Sie zurück zur Startseite oder zu den Stellenanzeigen."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Hier gelangen Sie zurück zur Startseite oder zu den Stellenanzeigen."
+  },
+  "header": {
+    "navLinks": {
+      "career": "Karriere",
+      "company": "Unternehmen",
+      "about": "Über uns",
+      "team": "Unser Team",
+      "culture": "Arbeitskultur",
+      "contact": "Demo anfragen"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Digitaler <span class='text-primary'>Bewerbungsprozess</span> für <span class='text-primary'>Unternehmen</span> und <span class='text-primary'>Bewerber</span>",
+      "description": "Diese Plattform vereint Jobanzeigen, Bewerbungen und Bewerbermanagement in einer Anwendung. Von Joblisting über CV-Upload bis zum Admin-Dashboard."
+    },
+    "dashboard": {
+      "title": "Bewerber verwalten",
+      "subtitle": "Jobs verwalten",
+      "description": "Admins und HR-Mitarbeiter können Bewerbungen einsehen, Bewerber favorisieren oder entfernen - übersichtlich in einem Dashboard.",
+      "subdescription": "Ausserdem können Jobs aktiv gesetzt, erstellt und bearbeitet werden - in mehreren Sprachen.",
+      "badge1": "Bewerberliste",
+      "badge2": "Jobliste",
+      "badge3": "Jobs & Benutzer erstellen und bearbeiten",
+      "badge4": "Benutzerliste",
+      "badge5": "Filter & Favoriten",
+      "badge6": "CV-Download",
+      "badge7": "Formulardaten einsehen",
+      "cta": {
+        "login": "Login",
+        "requestDemo": "Demo-Login anfragen"
+      }
+    },
+    "meeting": {
+      "title": "Von der Bewerbung bis zum Interview",
+      "description": "Alle Schritte des Bewerbungsprozesses in einem System - übersichtlich und digital vorbereitet, damit HR-Mitarbeiter effizient die nächsten Schritte einleiten können.",
+      "cta": "3D Tour starten",
+      "cta-three": "Tour von vorne starten"
+    }
+  },
+  "footer": {
+    "slogan": {
+      "title": "Karriere mit Perspektive.",
+      "subtitle": "Entdecken Sie passende Stellenangebote und bewerben Sie sich in wenigen Minuten."
+    },
+    "section1": {
+      "title": "Entdecken",
+      "items": {
+        "item1": "Jobangebote",
+        "item2": "Karrieretipps",
+        "item3": "Unternehmensprofile"
+      }
+    },
+    "section2": {
+      "title": "Informationen",
+      "items": {
+        "item1": "Über uns",
+        "item2": "Kontakt",
+        "item3": "Datenschutz"
+      }
+    }
+  },
+  "contact": {
+    "title": "Demo anfragen",
+    "subtitle": "Fordern Sie Ihren Demo-Login über das Formular an oder schreiben Sie mir direkt unter",
+    "form": {
+      "fields": {
+        "name": "Name",
+        "email": "E-Mail",
+        "message": "Nachricht"
+      },
+      "submit": "Absenden",
+      "messages": {
+        "success": "Nachricht wurde erfolgreich gesendet. Vielen Dank!",
+        "emptyFields": "Bitte füllen Sie alle Felder aus.",
+        "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "recaptcha": "Bitte schließen Sie die reCAPTCHA-Überprüfung ab.",
+        "serverError": "Fehler beim Senden der Nachricht. Bitte aktualisieren Sie die Seite oder versuchen Sie es später erneut."
+      }
+    }
+  },
+  "application": {
+    "title": "Bewerben als",
+    "subtitle": "Bewerben Sie sich direkt über das untenstehende Formular.",
+    "form": {
+      "fields": {
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "email": "E-Mailadresse",
+        "phone": "Telefonnummer",
+        "cv": "Lebenslauf hochladen (nur PDF)",
+        "message": "Nachricht"
+      },
+      "submit": "Bewerben",
+      "successMessage": "Bewerbung wurde erfolgreich gesendet. Vielen Dank!",
+      "errors": {
+        "emptyFields": "Bitte füllen Sie alle Felder aus.",
+        "cvEmpty": "Bitte laden Sie Ihren Lebenslauf hoch.",
+        "invalidEmail": "Die E-Mail-Adresse ist ungültig.",
+        "recaptchaMissing": "Bitte bestätigen Sie, dass Sie kein Roboter sind.",
+        "serverError": "Es ist ein Fehler auf dem Server aufgetreten.",
+        "invalidJobId": "Ungültige Stelle ausgewählt."
+      }
+    }
+  },
+  "login": {
+    "labels": {
+      "email": "Email-Adresse",
+      "password": "Passwort"
+    },
+    "messages": {
+      "success": "Login erfolgreich! Sie werden weitergeleitet...",
+      "error": "Login fehlgeschlagen"
+    }
+  },
+  "logout": {
+    "labels": {
+      "logout": "Abmelden"
+    },
+    "errors": {
+      "failedApiCall": "Logout Fehlgeschlagen, bitte erneut versuchen.",
+      "serverError": "Es ist ein Fehler auf dem Server aufgetreten."
+    }
+  },
+  "dashboard": {
+    "headings": {
+      "applicant": "Bewerberliste",
+      "user": "Benutzerliste",
+      "job": "Jobliste"
+    },
+    "sidebar": {
+      "common": {
+        "sortField": "Sortieren nach:",
+        "searchField": "Suchen",
+        "pagination": "Ergebnisse pro Seite:"
+      },
+      "applicant": {
+        "sortOptions": {
+          "date": "Eingangsdatum",
+          "firstName": "Vorname",
+          "lastName": "Nachname",
+          "email": "E-Mail"
+        },
+        "searchField": "Bewerber suchen",
+        "totalField": "Bewerber insgesamt",
+        "favoritesFilter": "Nur Favoriten anzeigen"
+      },
+      "user": {
+        "sortOptions": {
+          "createdAt": "Erstellt am",
+          "username": "Benutzername",
+          "email": "Emailadresse",
+          "role": "Rolle"
+        },
+        "searchField": "Benutzer suchen",
+        "totalField": "Benutzer insgesamt",
+        "roleFilter": "Rolle filtern:",
+        "allRoles": "Alle Rollen",
+        "createButton": "Benutzer erstellen"
+      },
+      "job": {
+        "searchField": "Jobs suchen",
+        "totalField": "Jobs insgesamt",
+        "activeFilter": "Nur aktive Jobs anzeigen",
+        "createButton": "Job erstellen",
+        "sortOptions": {
+          "createdAt": "Erstellt am",
+          "title": "Jobtitel",
+          "location": "Arbeitsort",
+          "salary": "Gehalt"
+        }
+      }
+    }
+  },
+  "lists": {
+    "applicant": {
+      "buttons": {
+        "downloadCv": "Lebenslauf herunterladen"
+      },
+      "headings": {
+        "contactInfo": "Kontaktinformationen",
+        "message": "Nachricht",
+        "dateReceived": "Eingangsdatum",
+        "jobTitle": "Job Titel"
+      },
+      "emptyMessage": "Keine Bewerber vorhanden."
+    },
+    "user": {
+      "headings": {
+        "email": "Emailadresse",
+        "createdAt": "Erstellt am"
+      },
+      "emptyMessage": "Keine Benutzer vorhanden."
+    },
+    "job": {
+      "headings": {
+        "location": "Arbeitsort",
+        "createdAt": "Erstellt am",
+        "description": "Beschreibung",
+        "details": "Details",
+        "salary": "Gehalt"
+      },
+      "emptyMessage": "Keine Jobs verfügbar."
+    }
+  },
+  "userManagement": {
+    "form": {
+      "titles": {
+        "edit": "Benutzer bearbeiten",
+        "create": "Benutzer erstellen"
+      },
+      "labels": {
+        "username": "Benutzername",
+        "email": "Email-Adresse",
+        "password": "Passwort",
+        "role": "Rolle auswählen"
+      },
+      "buttons": {
+        "create": "Benutzer erstellen",
+        "save": "Speichern"
+      },
+      "messages": {
+        "success": {
+          "create": "Benutzer erfolgreich erstellt!",
+          "save": "Änderungen erfolgreich gespeichert!"
+        },
+        "error": {
+          "empty": "Bitte alle Felder ausfüllen",
+          "invalidEmail": "Ungültige E-Mail-Adresse",
+          "serverError": "Fehler beim Speichern. Bitte erneut versuchen.",
+          "unchanged": "Keine Änderungen vorgenommen."
+        }
+      }
+    }
+  },
+  "jobManagement": {
+    "form": {
+      "titles": {
+        "edit": "Job bearbeiten",
+        "create": "Job erstellen"
+      },
+      "languageHeadings": {
+        "german": "Deutsch (DE)",
+        "english": "Englisch (EN)"
+      },
+      "labels": {
+        "title": "Jobtitel",
+        "location": "Ort",
+        "description": "Beschreibung",
+        "details": "Details",
+        "salary": "Gehalt",
+        "active": "Status"
+      },
+      "statusOptions": {
+        "active": "Aktiv",
+        "inactive": "Inaktiv"
+      },
+      "buttons": {
+        "create": "Job erstellen",
+        "save": "Änderungen speichern"
+      },
+      "messages": {
+        "success": {
+          "create": "Job erfolgreich erstellt!",
+          "save": "Job erfolgreich aktualisiert!"
+        },
+        "warning": {
+          "checkTranslation": "Bitte beide Übersetzungen überprüfen und gegebenenfalls anpassen."
+        },
+        "error": {
+          "empty": "Bitte füllen Sie alle Felder aus.",
+          "serverError": "Fehler beim Speichern. Bitte erneut versuchen.",
+          "unchanged": "Es wurden keine Änderungen vorgenommen."
+        }
+      }
+    }
+  },
+  "deleteModal": {
+    "title": "Löschen bestätigen",
+    "body": "Möchten Sie diesen Eintrag wirklich löschen?",
+    "buttons": {
+      "cancel": "Abbrechen",
+      "confirm": "Ja, löschen"
+    },
+    "error": {
+      "existingApplicants": "Dieser Job kann nicht gelöscht werden, da noch Bewerber dafür existieren. Sie können den Job auf 'inaktiv' setzen, wenn keine Bewerbungen mehr erwünscht sind.",
+      "deleteLoggedInUser": "Sie können Ihr eigenes Benutzerkonto nicht löschen."
+    }
+  },
+  "benefits": {
+    "title": "Ihre Benefits",
+    "cardTitle1": "Getränke & Kaffee",
+    "cardTitle2": "Frisches Obst",
+    "cardTitle3": "Moderne Ausstattung",
+    "cardText1": "Kaltgetränke und frischer Kaffee stehen jederzeit bereit.",
+    "cardText2": "Wir sorgen täglich für eine Auswahl an frischem Obst.",
+    "cardText3": "Firmenlaptop und Smartphone werden zur Verfügung gestellt."
+  },
+  "serverErrors": {
+    "recaptchaFailed": "reCAPTCHA-Überprüfung fehlgeschlagen. Bitte erneut versuchen.",
+    "emptyFields": "Bitte füllen Sie alle erforderlichen Felder aus.",
+    "failedUpload": "Fehler beim Hochladen des Lebenslaufs. Bitte erneut versuchen."
+  },
+  "jobsPage": {
+    "title": "Karriere",
+    "subtitle": "Entdecken Sie spannende Jobangebote und starten Sie Ihre Karriere mit uns. Bewerben Sie sich jetzt über den Button oder per E-Mail an ",
+    "emptyMessage": "Keine Stellen verfügbar.",
+    "searchField": "Jobs suchen",
+    "details": {
+      "label": "Details:",
+      "salary": "Gehalt:",
+      "location": "Arbeitsort:"
+    },
+    "applyButton": "Bewerben",
+    "count": "Aktuell sind {{count}} Stellen ausgeschrieben"
+  }
+}

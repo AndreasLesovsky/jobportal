@@ -1,0 +1,169 @@
+nav {
+  background-color: var(--bs-body-bg);
+}
+
+.placeholder {
+  height: 5rem;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  height: 4rem;
+}
+
+.navbar-brand i {
+  font-size: 1.75rem;
+  background-color: var(--bs-primary);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100vw;
+  margin-right: 0.25rem;
+  margin-right: 0 !important;
+}
+
+.navbar-nav li {
+  font-size: 1.15rem !important;
+  font-weight: 300 !important;
+  text-transform: uppercase;
+}
+
+.navbar-nav li a:hover {
+  color: var(--bs-primary-hover-bg);
+}
+
+ul .nav-link.active {
+  color: var(--bs-primary);
+}
+
+ul .btn-primary {
+  padding-inline: 0.75rem;
+}
+
+ul .btn-primary.active {
+  background-color: var(--bs-primary-hover-bg) !important;
+}
+
+#collapseCompany {
+  padding-left: 1rem !important;
+}
+
+.btn-outline-secondary {
+  border: 0;
+}
+
+.lang-switch,
+#theme-toggler,
+.btn-login {
+  color: var(--bs-text-emphasis);
+  font-size: 1.15rem;
+}
+
+.lang-switch:hover,
+#theme-toggler:hover,
+.btn-login:hover {
+  color: #fff;
+
+}
+
+.nav-link {
+  font-weight: 600;
+  z-index: 10;
+}
+
+@media (min-width: 992px) {
+
+  #collapseCompany {
+    padding-left: 0 !important;
+
+    box-shadow: var(--bs-box-shadow-sm) !important;
+  }
+
+  .nav-item>ul {
+    max-height: 0;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 5rem;
+    transform: translateX(-0.5rem);
+    background-color: var(--bs-body-bg);
+    border-radius: 0 0 5px 5px;
+    transition: max-height 0.75s ease;
+    border-left: 1px solid var(--bs-border-color);
+    border-right: 1px solid var(--bs-border-color);
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  .nav-item:hover>ul {
+    max-height: 500px;
+
+  }
+
+  .nav-item>ul .nav-link {
+    padding-inline: 1rem;
+  }
+
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .navbar>div:first-of-type {
+    position: relative;
+  }
+
+  #collapseCompany {
+    box-shadow: none !important;
+  }
+
+}
+
+/* extra Breakpoints für Header Layout auf kleineren Bildschirmen */
+@media (max-width: 465px) {
+
+  .navbar-brand {
+    font-size: 1.25rem !important;
+  }
+
+  .navbar-brand i {
+    font-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (max-width: 417px) {
+
+  .navbar-brand {
+    font-size: 1.5rem !important;
+    margin-right: 0 !important;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar-brand i {
+    font-size: 1.75rem;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  div.order-lg-2 {
+    margin-left: 0 !important;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .placeholder {
+    height: 116.8px;
+  }
+
+}

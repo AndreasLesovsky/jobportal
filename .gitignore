@@ -1,0 +1,55 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files
+
+# -----------------
+# Frontend (Angular)
+# -----------------
+frontend/jobportal/dist
+frontend/jobportal/tmp
+frontend/jobportal/out-tsc
+frontend/jobportal/bazel-out
+frontend/jobportal/node_modules
+frontend/jobportal/.angular/cache
+frontend/jobportal/connect.lock
+frontend/jobportal/coverage
+frontend/jobportal/libpeerconnection.log
+frontend/jobportal/typings
+frontend/.htaccess
+frontend/jobportal/src/app/config/recaptcha.config.ts
+frontend/jobportal/src/app/config/api.config.ts
+testem.log
+.sass-cache/
+
+# -----------------
+# Backend (PHP)
+# -----------------
+backend/vendor/
+backend/includes/config.inc.php
+
+# -----------------
+# Node logs
+# -----------------
+npm-debug.log*
+yarn-error.log*
+
+# -----------------
+# IDEs & Editors
+# -----------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# -----------------
+# System files
+# -----------------
+.DS_Store
+Thumbs.db

@@ -1,0 +1,30 @@
+.btn-primary {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--bs-primary-hover-bg);
+  color: #ffffff !important;
+}
+
+.btn-primary.active {
+  background-color: var(--bs-primary);
+  color: #ffffff;
+}
+
+.btn-primary.active:hover {
+  background-color: var(--bs-primary-hover-bg);
+}
+
+.dashboard-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.dashboard-nav .btn {
+  flex: 1 1 auto;
+  min-width: 20rem;
+}

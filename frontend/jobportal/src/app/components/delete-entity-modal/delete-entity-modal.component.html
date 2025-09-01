@@ -1,0 +1,33 @@
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-3 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmDeleteModalLabel">
+          {{ 'deleteModal.title' | translate }}
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
+      </div>
+      <div class="modal-body py-5">
+        {{ 'deleteModal.body' | translate }}
+        @if (deleteService.errorType() === 'existingApplicantForJobId') {
+        <div class="alert alert-danger mt-3" role="alert">
+          {{ 'deleteModal.error.existingApplicants' | translate }}
+        </div>
+        } @else if (deleteService.errorType() === 'deleteLoggedInUser') {
+          <div class="alert alert-danger mt-3" role="alert">
+            {{ 'deleteModal.error.deleteLoggedInUser' | translate }}
+          </div>
+        }
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ 'deleteModal.buttons.cancel' | translate }}
+        </button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()" [disabled]="deleteService.isDeleteButtonDisabled()">
+          {{ 'deleteModal.buttons.confirm' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

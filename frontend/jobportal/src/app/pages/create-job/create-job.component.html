@@ -1,0 +1,159 @@
+<section class="bg-body-tertiary">
+  <div class="container px-0">
+
+    @if (isEditMode()) {
+    <h3 class="mb-3">{{ 'jobManagement.form.titles.edit' | translate }}</h3>
+    } @else {
+    <h3 class="mb-3">{{ 'jobManagement.form.titles.create' | translate }}</h3>
+    }
+
+    <form (ngSubmit)="onSubmit()" id="create-job-form" class="create-job-form">
+      <div class="row">
+        <!-- DE -->
+        <div class="col-md-6">
+          <h5>{{ 'jobManagement.form.languageHeadings.german' | translate }}</h5>
+          <div class="form-floating mb-3">
+            <input type="text" id="title_de" name="title_de" class="form-control" placeholder="Titel"
+              [(ngModel)]="formData.de.title" (ngModelChange)="onDeChange('title')"
+              [class.border-warning]="needsTranslation.title" [required]="!isEditMode()" />
+            <label for="title_de">{{ 'jobManagement.form.labels.title' | translate }} (DE)</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" id="location_de" name="location_de" class="form-control" placeholder="Ort"
+              [(ngModel)]="formData.de.location" (ngModelChange)="onDeChange('location')"
+              [class.border-warning]="needsTranslation.location" [required]="!isEditMode()" />
+            <label for="location_de">{{ 'jobManagement.form.labels.location' | translate }} (DE)</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <textarea id="description_de" name="description_de" class="form-control" placeholder="Beschreibung"
+              [(ngModel)]="formData.de.description" (ngModelChange)="onDeChange('description')"
+              [class.border-warning]="needsTranslation.description" [required]="!isEditMode()"
+              style="height: 120px"></textarea>
+            <label for="description_de">{{ 'jobManagement.form.labels.description' | translate }} (DE)</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <textarea id="details_de" name="details_de" class="form-control" placeholder="Details"
+              [(ngModel)]="formData.de.details" (ngModelChange)="onDeChange('details')"
+              [class.border-warning]="needsTranslation.details" [required]="!isEditMode()"
+              style="height: 120px"></textarea>
+            <label for="details_de">{{ 'jobManagement.form.labels.details' | translate }} (DE)</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" id="salary_de" name="salary_de" class="form-control" placeholder="Gehalt"
+              [(ngModel)]="formData.de.salary" (ngModelChange)="onDeChange('salary')"
+              [class.border-warning]="needsTranslation.salary" [required]="!isEditMode()" />
+            <label for="salary_de">{{ 'jobManagement.form.labels.salary' | translate }} (DE)</label>
+          </div>
+        </div>
+        <!-- EN -->
+        <div class="col-md-6">
+          <h5>{{ 'jobManagement.form.languageHeadings.english' | translate }}</h5>
+          <div class="form-floating mb-3">
+            <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Title"
+              [(ngModel)]="formData.en.title" (ngModelChange)="onEnChange('title')" [required]="!isEditMode()"
+              [class.border-warning]="needsTranslation.title" />
+            <label for="title_en">{{ 'jobManagement.form.labels.title' | translate }} (EN)</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" id="location_en" name="location_en" class="form-control" placeholder="Location"
+              [(ngModel)]="formData.en.location" (ngModelChange)="onEnChange('location')" [required]="!isEditMode()"
+              [class.border-warning]="needsTranslation.location" />
+            <label for="location_en">{{ 'jobManagement.form.labels.location' | translate }} (EN)</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <textarea id="description_en" name="description_en" class="form-control" placeholder="Description"
+              [(ngModel)]="formData.en.description" (ngModelChange)="onEnChange('description')"
+              [required]="!isEditMode()" [class.border-warning]="needsTranslation.description"
+              style="height: 120px"></textarea>
+            <label for="description_en">{{ 'jobManagement.form.labels.description' | translate }} (EN)</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <textarea id="details_en" name="details_en" class="form-control" placeholder="Details"
+              [(ngModel)]="formData.en.details" (ngModelChange)="onEnChange('details')" [required]="!isEditMode()"
+              [class.border-warning]="needsTranslation.details" style="height: 120px"></textarea>
+            <label for="details_en">{{ 'jobManagement.form.labels.details' | translate }} (EN)</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" id="salary_en" name="salary_en" class="form-control" placeholder="Salary"
+              [(ngModel)]="formData.en.salary" (ngModelChange)="onEnChange('salary')"
+              [class.border-warning]="needsTranslation.salary" [required]="!isEditMode()" />
+            <label for="salary_en">{{ 'jobManagement.form.labels.salary' | translate }} (EN)</label>
+          </div>
+        </div>
+      </div>
+      <!-- is_active -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-label mb-4">
+            <label for="is_active">{{ 'jobManagement.form.labels.active' | translate }}</label>
+            <select id="is_active" name="is_active" class="form-select" [(ngModel)]="formData.is_active" required>
+              <option [ngValue]="true">{{ 'jobManagement.form.statusOptions.active' | translate }}</option>
+              <option [ngValue]="false">{{ 'jobManagement.form.statusOptions.inactive' | translate }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      @if (hasTranslationWarnings) {
+      <div class="alert alert-warning">
+        {{ 'jobManagement.form.messages.warning.checkTranslation' | translate }}
+      </div>
+      }
+
+      <!-- Buttons -->
+      @if (isEditMode()) {
+      <button type="submit" class="btn btn-primary btn-lg custom-primary-hover" [disabled]="isLoading()">
+        <span class="d-inline-flex align-items-center">
+          {{ 'jobManagement.form.buttons.save' | translate }}
+          @if (isLoading()) {
+          <span class="spinner-border spinner-border-sm ms-2" aria-hidden="true"></span>
+          } @else {
+          <i class="bi bi-pencil-square ms-2"></i>
+          }
+        </span>
+      </button>
+      } @else {
+      <button type="submit" class="btn btn-primary btn-lg custom-primary-hover" [disabled]="isLoading()">
+        <span class="d-inline-flex align-items-center">
+          {{ 'jobManagement.form.buttons.create' | translate }}
+          @if (isLoading()) {
+          <span class="spinner-border spinner-border-sm ms-2" aria-hidden="true"></span>
+          } @else {
+          <i class="bi bi-clipboard-plus ms-2"></i>
+          }
+        </span>
+      </button>
+      }
+    </form>
+
+    <!-- Fehler & Erfolgsmeldungen -->
+    @if (errorType() === 'empty') {
+      <div class="alert alert-danger mt-3">
+        {{ 'jobManagement.form.messages.error.empty' | translate }}
+      </div>
+    } @else if (errorType() === 'unchanged') {
+      <div class="alert alert-warning mt-3">
+        {{ 'jobManagement.form.messages.error.unchanged' | translate }}
+      </div>
+    } @else if (errorType() === 'serverError') {
+      <div class="alert alert-danger mt-3">
+        {{ 'jobManagement.form.messages.error.serverError' | translate }}
+      </div>
+    } @else {
+      @if (submitSuccess()) {
+        <div class="alert alert-success mt-3">
+          {{ isEditMode() ? ('jobManagement.form.messages.success.save' | translate) :
+          ('jobManagement.form.messages.success.create' | translate) }}
+        </div>
+      }
+    }
+  </div>
+</section>

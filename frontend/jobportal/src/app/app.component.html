@@ -1,0 +1,9 @@
+<app-header></app-header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-delete-entity-modal></app-delete-entity-modal>
+
+@if (!isDashboard()) {
+  <app-footer></app-footer>
+}

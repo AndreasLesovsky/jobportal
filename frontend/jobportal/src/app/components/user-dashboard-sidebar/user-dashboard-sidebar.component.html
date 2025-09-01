@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg pb-2 d-lg-flex flex-lg-column align-items-stretch p-lg-0">
+  <div class="d-flex align-items-center gap-2">
+    <span class="badge bg-primary text-white fs-6 p-2">
+      {{ getUsersService.users().length }}
+    </span>
+    <label class="form-label mb-0">{{ "dashboard.sidebar.user.totalField" | translate }}</label>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sideBarMenuUsers"
+    aria-controls="sideBarMenuUsers" aria-expanded="false" aria-label="Toggle Sidebar Menu" title="Toggle Sidebar Menu">
+    <i class="bi bi-three-dots-vertical"></i>
+  </button>
+
+  <div class="collapse navbar-collapse align-items-stretch p-0" id="sideBarMenuUsers">
+    <div class="d-flex flex-column gap-3" style="width: 100%;">
+
+      <div class="mt-3">
+        <label for="sortField" class="form-label mb-0">
+          {{ "dashboard.sidebar.common.sortField" | translate }}
+        </label>
+        <div class="input-group">
+          <select id="sortField" class="form-select" [value]="sortField()" (change)="changeSortField($event)">
+            <option value="created_at">{{ "dashboard.sidebar.user.sortOptions.createdAt" | translate }}</option>
+            <option value="username">{{ "dashboard.sidebar.user.sortOptions.username" | translate }}</option>
+            <option value="email">{{ "dashboard.sidebar.user.sortOptions.email" | translate }}</option>
+            <option value="role_name">{{ "dashboard.sidebar.user.sortOptions.role" | translate }}</option>
+          </select>
+
+          <button type="button" class="btn btn-outline-secondary" (click)="toggleSortOrder()"
+            [attr.aria-label]="'Sortierung ' + sortOrder()">
+            <i class="bi bi-arrow-down sort-icon" [class.asc]="sortOrder() === 'asc'"
+              [class.desc]="sortOrder() === 'desc'">
+            </i>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <label for="roleFilter" class="form-label mb-0">
+          {{ "dashboard.sidebar.user.roleFilter" | translate }}
+        </label>
+        <select class="form-select" id="roleFilter" [value]="getUsersService.roleFilter()"
+          (change)="onRoleFilterChange($event)">
+          <option value="">{{ "dashboard.sidebar.user.allRoles" | translate }}</option>
+          <option value="admin">Admin</option>
+          <option value="hr">HR</option>
+        </select>
+      </div>
+
+      <app-pagination-select-field></app-pagination-select-field>
+
+      <div class="form-floating">
+        <input #searchInput type="search" class="form-control" id="search" placeholder="Vorname, Nachname oder E-Mail"
+          (input)="handleSearch($event)" />
+        <label for="search">
+          <i class="bi bi-search me-1"></i>
+          {{ "dashboard.sidebar.user.searchField" | translate }}
+        </label>
+      </div>
+
+      <button routerLink="/dashboard/create-user" class="btn btn-outline-primary custom-outline-primary-hover">
+        <span>
+          <i class="bi bi-person-add"></i>
+          {{ "dashboard.sidebar.user.createButton" | translate }}
+        </span>
+      </button>
+
+      <app-logout-btn></app-logout-btn>
+
+    </div>
+  </div>
+</nav>

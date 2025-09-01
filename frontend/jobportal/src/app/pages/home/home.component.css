@@ -1,0 +1,29 @@
+[data-bs-theme="dark"] section:nth-of-type(1) .btn-outline-secondary {
+  border-color: #fff !important;
+}
+
+section:nth-of-type(1) {
+  background-color: var(--bs-primary-bg-subtle);
+}
+
+section:last-of-type {
+  background-image: url(/images/meeting-background.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 35rem;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+section:last-of-type .btn-outline-secondary {
+  border-color: #fff;
+}
+
+section:last-of-type .btn-outline-secondary:hover {
+  border-color: var(--bs-secondary);
+}

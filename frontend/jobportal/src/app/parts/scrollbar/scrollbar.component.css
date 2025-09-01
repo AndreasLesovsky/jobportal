@@ -1,0 +1,27 @@
+#scrollProgress {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  width: 6px;
+  height: 0%;
+  background-color: var(--bs-primary);
+  z-index: 9999;
+  transition: height 0.1s ease-out;
+}
+
+#scrollProgress::before {
+  content: "";
+  position: absolute;
+  top: calc(100% - 3px);
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid var(--bs-primary);
+}
+
+@media (max-width: 992px) {
+  /* #scrollProgress {
+      display: none;
+    } */
+}
