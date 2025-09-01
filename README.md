@@ -116,7 +116,7 @@ ng serve
 * Beispiel‑Jobs und Bewerber sind in der Demo Datenbank
 * Cronjob setzt die Demo‑DB stündlich zurück (nur für Demo‑Zwecke)
 
-[https://jobportal.andreas-web.dev]([https://jobportal.andreas-web.dev)
+[Demo-Link](https://jobportal.andreas-web.dev)
 
 ---
 
