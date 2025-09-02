@@ -98,8 +98,8 @@ npm install
 ng serve
 ```
 
-* Dev‑Server: `http://localhost:4200`
-* `src/app/config/api.config.example.ts` und `src/app/config/recaptcha.config.example.ts` kopieren als `api.config.ts` und `recaptcha.config.ts` und Daten eintragen
+1. Dev‑Server: `http://localhost:4200`
+2. `src/app/config/api.config.example.ts` und `src/app/config/recaptcha.config.example.ts` kopieren als `api.config.ts` und `recaptcha.config.ts` und Daten eintragen
 
 ### Backend
 
@@ -112,11 +112,10 @@ ng serve
 
 ## Demo
 
-* Demo‑Zugang möglich (Zugangsdaten auf Anfrage)
-* Beispiel‑Jobs und Bewerber sind in der Demo Datenbank
-* Cronjob setzt die Demo‑DB stündlich zurück (nur für Demo‑Zwecke)
-
-[Demo-Link](https://jobportal.andreas-web.dev)
+Öffentliche Demo: https://jobportal.andreas-web.dev  
+Bewerbungen können ohne Login eingereicht werden.  
+Dashboard-Login (Admin/HR): Zugangsdaten gibt’s auf Anfrage (andreas [at] andreas-web.dev).
+Hinweis: Die Demo-Datenbank wird stündlich zurückgesetzt.
 
 ---
 

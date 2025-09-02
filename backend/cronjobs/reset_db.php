@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.inc.php';
 
 $conn = dbConnect();
 if ($conn->connect_error) {
-    error_log('DB-Verbindung fehlgeschlagen: ' . $conn->connect_error);
+    error_log("DB-Verbindung fehlgeschlagen: " . $conn->connect_error);
     exit(1);
 }
 
@@ -13,14 +13,14 @@ if ($conn->connect_error) {
 $deleteTables = ['tbl_applicants', 'tbl_jobs']; // Reihenfolge beachten: zuerst die abhängigen Tabellen
 foreach ($deleteTables as $table) {
     if (!$conn->query("DELETE FROM `$table`")) {
-        echo 'Fehler beim Löschen von ' . $table . ': ' . $conn->error . "\n";
+        echo "Fehler beim Löschen von $table: " . $conn->error . "\n";
     } else {
-        echo 'Tabelle ' . $table . ' geleert.\n';
+        echo "Tabelle $table geleert.\n";
     }
 
-    // --- Auto-Increment zurücksetzen ---
+    // Optional: Auto-Increment zurücksetzen
     if (!$conn->query("ALTER TABLE `$table` AUTO_INCREMENT = 1")) {
-        echo 'Fehler beim Zurücksetzen von AUTO_INCREMENT für ' . $table . ': ' . $conn->error . "\n";
+        echo "Fehler beim Zurücksetzen von AUTO_INCREMENT für $table: " . $conn->error . "\n";
     }
 }
 
@@ -28,15 +28,15 @@ foreach ($deleteTables as $table) {
 $superAdminId = SUPER_ADMIN_ID;
 $stmt = $conn->prepare("DELETE FROM tbl_users WHERE role_id != ?");
 if ($stmt) {
-    $stmt->bind_param('i', $superAdminId);
+    $stmt->bind_param("i", $superAdminId);
     if (!$stmt->execute()) {
-        error_log('Fehler beim Löschen der User: ' . $stmt->error);
+        error_log("Fehler beim Löschen der User: " . $stmt->error);
     } else {
-        echo 'Tabelle tbl_users geleert.\n';
+        echo "Tabelle tbl_users geleert.\n";
     }
     $stmt->close();
 } else {
-    error_log('Fehler beim Vorbereiten von DELETE tbl_users: ' . $conn->error);
+    error_log("Fehler beim Vorbereiten von DELETE tbl_users: " . $conn->error);
 }
 
 // --- Beispiel-Daten wieder einfügen ---
@@ -67,9 +67,11 @@ $exampleInserts = [
 
     // Benutzer einfügen
     "INSERT INTO tbl_users (id, username, email, password_hash, created_at, role_id) VALUES 
-    (2, 'Robert', 'robert@jobportal.com', '$2y$12$0yFED03MrsBIua2mm277/.iOts5ulO5Id0uU1D8v.27J7VfuvQs96', '2025-08-28 17:10:54', 2), 
-    (3, 'Sabine', 'sabine@jobportal.com', '$2y$12$0yFED03MrsBIua2mm277/.iOts5ulO5Id0uU1D8v.27J7VfuvQs96', '2025-08-29 06:45:44', 1), 
-    (4, 'Judith', 'judith@jobportal.com', '$2y$12$0yFED03MrsBIua2mm277/.iOts5ulO5Id0uU1D8v.27J7VfuvQs96', '2025-08-27 06:46:12', 2);",
+    (2, 'HrDemo', 'hrdemo@jobportal.com', '$2y$12$0yFED03MrsBIua2mm277/.iOts5ulO5Id0uU1D8v.27J7VfuvQs96', '2025-09-02 12:28:39', 2),
+    (3, 'AdminDemo', 'admindemo@jobportal.com', '$2y$12$0yFED03MrsBIua2mm277/.iOts5ulO5Id0uU1D8v.27J7VfuvQs96', '2025-09-02 12:14:34', 1),
+    (4, 'Robert', 'robert@jobportal.com', '$2y$12$0yFED03MrsBIua2mm277/.iOts5ulO5Id0uU1D8v.27J7VfuvQs96', '2025-08-28 17:10:54', 2), 
+    (5, 'Sabine', 'sabine@jobportal.com', '$2y$12$0yFED03MrsBIua2mm277/.iOts5ulO5Id0uU1D8v.27J7VfuvQs96', '2025-08-29 06:45:44', 1), 
+    (6, 'Judith', 'judith@jobportal.com', '$2y$12$0yFED03MrsBIua2mm277/.iOts5ulO5Id0uU1D8v.27J7VfuvQs96', '2025-08-27 06:46:12', 2);",
 
     // Bewerber einfügen - Teil 1
     "INSERT INTO tbl_applicants (id, job_id, first_name, last_name, email, phone, message, cv_path, created_at, is_favorite) VALUES 
@@ -108,10 +110,10 @@ $exampleInserts = [
 
 foreach ($exampleInserts as $sql) {
     if (!$conn->query($sql)) {
-        error_log('Fehler beim Insert: ' . $conn->error);
+        error_log("Fehler beim Insert: " . $conn->error);
     }
 }
-echo 'Tabellen wurden wieder mit Beispieldaten befüllt.';
+echo "Tabellen wurden wieder mit Beispieldaten befüllt.";
 
 $conn->close();
 ?>
