@@ -16,5 +16,4 @@ export class PaginationSelectFieldComponent {
     const value = Number(target.value);
     this.pagination.updateItemsPerPage(value);
   }
-
 }

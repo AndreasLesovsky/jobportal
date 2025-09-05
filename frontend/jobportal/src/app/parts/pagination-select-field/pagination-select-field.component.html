@@ -2,7 +2,7 @@
   <label for="paginationField" class="form-label mb-0">
     {{ "dashboard.sidebar.common.pagination" | translate }}
   </label>
-  <select [value]="pagination.itemsPerPageValue" (change)="onItemsPerPageSelect($event)" class="form-select">
+  <select [value]="pagination.itemsPerPageValue" (change)="onItemsPerPageSelect($event)" id="paginationField" class="form-select">
     <option [value]="5">5</option>
     <option [value]="10">10</option>
     <option [value]="20">20</option>
