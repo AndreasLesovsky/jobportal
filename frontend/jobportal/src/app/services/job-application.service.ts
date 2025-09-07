@@ -1,12 +1,12 @@
 import { Injectable, signal } from '@angular/core';
-import { apiUrls } from '../config/api.config';
+import { apiUrl } from '../config/api.config';
 import { JobApplicationForm } from '../../models/job-application-form.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JobApplicationService {
-  private jobApplicationUrl = apiUrls.sendJobApplication;
+  private jobApplicationUrl = apiUrl;
   errorType = signal<'recaptchaFailed' | 'emptyFields' | 'failedUpload' | null>(null);
 
   async sendApplication(formData: JobApplicationForm): Promise<any> {
@@ -14,6 +14,7 @@ export class JobApplicationService {
     if (formData.cv === null) throw new Error('CV fehlt');
 
     const form = new FormData();
+    form.append('endpoint', 'job_application');
     form.append('first_name', formData.first_name);
     form.append('last_name', formData.last_name);
     form.append('email', formData.email);

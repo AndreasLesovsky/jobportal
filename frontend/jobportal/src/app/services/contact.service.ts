@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
-import { apiUrls } from '../config/api.config';
+import { apiUrl } from '../config/api.config';
 import { ContactForm } from '../../models/contact-form.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactService {
-  private contactUrl = apiUrls.sendContactMail;
 
   async sendMessage(formData: ContactForm): Promise<any> {
-    const response = await fetch(this.contactUrl, {
+    // endpoint hinzufügen
+    const payload = { ...formData, endpoint: 'send_contact_mail' };
+
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(payload),
     });
 
     if (!response.ok) {
@@ -23,4 +25,5 @@ export class ContactService {
 
     return response.json();
   }
+
 }

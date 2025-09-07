@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { apiUrls } from '../config/api.config';
+import { apiUrl } from '../config/api.config';
 import { SaveUserForm } from '../../models/save-user-form.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SaveUserService {
-  private saveUserUrl = apiUrls.saveUser;
+  private saveUserUrl = apiUrl;
 
   async saveUser(formData: SaveUserForm): Promise<any> {
     const form = new FormData();
 
-    // id nur anhängen, wenn vorhanden und null-frei
+    form.append('endpoint', 'save_user');
+
+    // id nur anhängen, wenn vorhanden und null-frei (editMode)
     if (formData.id != null) {
       form.append('id', formData.id.toString());
     }

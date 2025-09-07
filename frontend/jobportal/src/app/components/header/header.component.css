@@ -62,7 +62,7 @@ ul .btn-primary.active {
 #theme-toggler,
 .btn-login {
   color: var(--bs-text-emphasis);
-  font-size: 1.15rem;
+  font-size: 1rem;
 }
 
 .lang-switch:hover,

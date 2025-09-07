@@ -4,13 +4,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Job } from '../../models/job.model';
 import { LanguageService } from './language.service';
-import { apiUrls } from '../config/api.config';
+import { apiUrl } from '../config/api.config';
 
 @Injectable({ providedIn: 'root' })
 
 export class GetJobsService {
   readonly http = inject(HttpClient);
-  private readonly getJobsUrl = apiUrls.getJobs;
+  private readonly getJobsUrl = apiUrl;
   readonly jobs = signal<Job[]>([]);
   readonly sortField = signal<'created_at' | 'title' | 'location' | 'salary'>('created_at');
   readonly sortOrder = signal<'asc' | 'desc'>('desc');
@@ -18,6 +18,7 @@ export class GetJobsService {
 
   loadJobs(searchTerm?: string, activeOnly?: boolean, lang: string = this.languageService.currentLang()): void {
     let params = new HttpParams()
+      .set('endpoint', 'get_jobs')
       .set('sortBy', this.sortField())
       .set('sortDir', this.sortOrder())
       .set('lang', lang);

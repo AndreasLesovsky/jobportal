@@ -2,14 +2,14 @@ import { inject, Injectable, signal } from '@angular/core';
 import { User } from '../../models/user.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
-import { apiUrls } from '../config/api.config';
+import { apiUrl } from '../config/api.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetUsersService {
   private readonly http = inject(HttpClient);
-  private readonly getUsersUrl = apiUrls.getUsers;
+  private readonly getUsersUrl = apiUrl;
   readonly users = signal<User[]>([]);
   readonly sortField = signal<'created_at' | 'username' | 'email' | 'role_name'>('created_at');
   readonly sortOrder = signal<'asc' | 'desc'>('desc');
@@ -17,6 +17,7 @@ export class GetUsersService {
 
   loadUsers(searchTerm?: string, role?: string): void {
     let params = new HttpParams()
+      .set('endpoint', 'get_users')
       .set('sortBy', this.sortField())
       .set('sortDir', this.sortOrder());
 

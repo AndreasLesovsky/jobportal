@@ -4,7 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { GetUsersService } from './get-users.service';
 import { GetApplicantsService } from './get-applicants.service';
 import { GetJobsService } from './get-jobs.service';
-import { apiUrls } from '../config/api.config';
+import { apiUrl } from '../config/api.config';
 
 @Injectable({ providedIn: 'root' })
 export class DeleteEntityService {
@@ -15,7 +15,7 @@ export class DeleteEntityService {
   errorType = signal<'existingApplicantForJobId' | 'deleteLoggedInUser' | null>(null);
   selectedTable = signal<'tbl_users' | 'tbl_applicants' | 'tbl_jobs' | null>(null);
   selectedEntityId = signal<number | null>(null);
-  private readonly deleteEntityUrl = apiUrls.deleteEntity;
+  private readonly deleteEntityUrl = apiUrl;
   isDeleteButtonDisabled = signal(false);
 
   openDeleteModal(table: 'tbl_users' | 'tbl_applicants' | 'tbl_jobs', id: number) {
@@ -46,6 +46,7 @@ export class DeleteEntityService {
     }
 
     const body = new URLSearchParams();
+    body.set('endpoint', 'delete_entity');
     body.set('table', table);
     body.set('id', id.toString());
 

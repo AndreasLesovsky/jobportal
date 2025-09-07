@@ -4,13 +4,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Applicant } from '../../models/applicant.model';
 import { catchError, of } from 'rxjs';
 import { LanguageService } from './language.service';
-import { apiUrls } from '../config/api.config';
+import { apiUrl } from '../config/api.config';
 
 @Injectable({ providedIn: 'root' })
 
 export class GetApplicantsService {
   private readonly http = inject(HttpClient);
-  private readonly getApplicantsUrl = apiUrls.getApplicants;
+  private readonly getApplicantsUrl = apiUrl;
   readonly applicants = signal<Applicant[]>([]);
   readonly sortField = signal<'created_at' | 'first_name' | 'last_name' | 'email'>('created_at');
   readonly sortOrder = signal<'asc' | 'desc'>('desc');
@@ -18,6 +18,7 @@ export class GetApplicantsService {
 
   loadApplicants(searchTerm?: string, favoriteOnly?: boolean, lang: string = this.languageService.currentLang()): void {
     let params = new HttpParams()
+      .set('endpoint', 'get_applicants')
       .set('sortBy', this.sortField())
       .set('sortDir', this.sortOrder())
       .set('lang', lang);

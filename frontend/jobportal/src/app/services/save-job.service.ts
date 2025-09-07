@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { apiUrls } from '../config/api.config';
+import { apiUrl } from '../config/api.config';
 import { SaveJobForm } from '../../models/save-job-form.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SaveJobService {
-  private saveJobUrl = apiUrls.saveJob;
+  private saveJobUrl = apiUrl;
 
   async saveJob(formData: SaveJobForm): Promise<any> {
     const form = new FormData();
+    form.append('endpoint', 'save_job');
 
     if (formData.id != null) {
       form.append('id', formData.id.toString());

@@ -10,7 +10,7 @@ require_once __DIR__ . '/../includes/common.inc.php';
 require_once __DIR__ . '/../includes/db.inc.php';
 require_once __DIR__ . '/../includes/recaptcha.inc.php';
 header('Content-Type: application/json');
-require '../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
