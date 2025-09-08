@@ -22,8 +22,7 @@
             <span class="d-inline-flex align-items-center">
               @if (isLoading()) {
               <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
-              }
-              @if (!isLoading()) {
+              } @else {
               <i class="bi bi-box-arrow-in-right me-2"></i>
               }
               Login
@@ -35,9 +34,7 @@
         <div class="alert alert-success mt-3" role="alert">
           {{ 'login.messages.success' | translate }}
         </div>
-        }
-
-        @if (!submitSuccess() && error()) {
+        } @else if (!submitSuccess() && error()) {
         <div class="alert alert-danger mt-3" role="alert">
           {{ 'login.messages.error' | translate }}
         </div>
