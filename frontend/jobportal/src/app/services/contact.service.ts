@@ -8,7 +8,6 @@ import { ContactForm } from '../../models/contact-form.model';
 export class ContactService {
 
   async sendMessage(formData: ContactForm): Promise<any> {
-    // endpoint hinzufügen
     const payload = { ...formData, endpoint: 'send_contact_mail' };
 
     const response = await fetch(apiUrl, {
