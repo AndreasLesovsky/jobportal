@@ -91,9 +91,3 @@ export const appRoutes: Routes = [
     redirectTo: 'not-found',
   },
 ];
-
-export const routeConfig: ExtraOptions = {
-  scrollPositionRestoration: 'top',
-  anchorScrolling: 'enabled',
-  // scrollOffset: [0, 5rem] // optional bei fixed Header für Sprungmarken
-};
