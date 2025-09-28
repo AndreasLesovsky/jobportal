@@ -1,7 +1,7 @@
 # JobPortal
 ![License](https://img.shields.io/badge/license-Proprietary-red)
 
-JobPortal ist eine Fullstack-Bewerberplattform mit **Angular 20** (Frontend) und **PHP/MySQL** (Backend). Sie bietet ein **rollenbasiertes Dashboard** (Admin, HR), **Job- & Bewerberverwaltung**, ein **bewerberseitiges Formular mit CV-Upload**, **Dark/Light Mode**, **i18n** (UI‑Texte per TranslateModule sowie dynamische Inhalte aus der DB) und eine **responsive** UI mit mobiler, einklappbarer Sidebar für das Dashboard.
+JobPortal ist eine Fullstack-Bewerberplattform mit **Angular 20** (Frontend) und **PHP/MySQL** (Backend). Sie bietet ein **rollenbasiertes Dashboard** (Admin, HR), **Job- & Bewerberverwaltung**, ein **bewerberseitiges Formular mit CV-Upload**, **Dark/Light Mode**, **i18n** (UI‑Texte per ngx-translate sowie dynamische Inhalte aus der DB) und eine **responsive** UI mit mobiler, einklappbarer Sidebar für das Dashboard.
 
 ---
 
@@ -82,7 +82,7 @@ jobportal/
 ### UX, i18n & Accessibility
 
 * Dark / Light Mode
-* i18n: UI‑Texte über Angular TranslateModule, dynamische Inhalte (z. B. Jobtitel/Beschreibungen) mehrsprachig aus der DB
+* i18n: UI‑Texte über ngx-translate, dynamische Inhalte (z. B. Jobtitel/Beschreibungen) mehrsprachig aus der DB
 * ARIA‑Attribute und keyboard‑friendly Controls
 * Responsive Design, Dashboard Sidebar collapsible auf Mobile
 
@@ -105,7 +105,7 @@ ng serve
 
 1. PHP‑Webserver einrichten (Apache / Nginx, PHP 8)
 2. Datenbank anlegen und SQL‑Dump importieren (`db_jobportal.sql`)
-3. `backend/api/config.inc.example.php` kopieren als `config.inc.php` und Daten eintragen
+3. `backend/includes/config.inc.example.php` kopieren als `config.inc.php` und Daten eintragen
 4. Backend‑Endpoints zb unter `backend/api/` bereitstellen
 
 ---
@@ -114,7 +114,7 @@ ng serve
 
 Öffentliche Demo: https://jobportal.andreas-web.dev  
 Bewerbungen können ohne Login eingereicht werden.  
-Dashboard-Login (Admin/HR): Zugangsdaten gibt’s auf Anfrage (andreas [at] andreas-web.dev).
+Dashboard-Login (Admin/HR): Zugangsdaten gibt’s auf Anfrage `andreas@andreas-web.dev`.
 Hinweis: Die Demo-Datenbank wird stündlich zurückgesetzt.
 
 ---
