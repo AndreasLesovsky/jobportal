@@ -1,11 +1,9 @@
-import { AfterViewInit, Component, computed, effect, inject, Renderer2, signal } from '@angular/core';
+import { AfterViewInit, Component, inject, Renderer2 } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { DarkmodeService } from '../../services/darkmode.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../services/language.service';
 import { GetJobsService } from '../../services/get-jobs.service';
-import { HttpParams } from '@angular/common/http';
-import { Job } from '../../../models/job.model';
 
 @Component({
   selector: 'app-header',
